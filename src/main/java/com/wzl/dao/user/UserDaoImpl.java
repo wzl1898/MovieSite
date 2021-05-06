@@ -32,9 +32,9 @@ public class UserDaoImpl implements UserDao{
 
     public User createUser(Connection connection, String username, String password, int id) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "insert into users(id, `username`, `password`)" +
-                "values(?, ?, ?);";
-        Object[] param = {id, username, password};
+        String sql = "insert into users(id, `username`, `password`, `isAdmin`)" +
+                "values(?, ?, ?, ?);";
+        Object[] param = {id, username, password, 0};
         User user = new User();
         user.setIsAdmin(0);
         user.setUsername(username);
